@@ -12,6 +12,16 @@ static char *font2[] = {
 static int borderpx = 2;
 
 
+static char *editscreen[] = { "/bin/sh", "-c",
+    "$XDG_BIN_HOME/st-edit-screen", NULL };
+
+static char *with_url[] = { "/bin/sh", "-c",
+    "$XDG_BIN_HOME/st-with-url", NULL };
+
+static char *copycmdoutput[] = { "/bin/sh", "-c",
+    "dmenu-copy-out",
+    "externalpipe", NULL };
+
 
 /*
  * VIM MODE
@@ -191,6 +201,9 @@ static MouseShortcut mshortcuts[] = {
 
 
 static Shortcut shortcuts[] = {
+  { TERMMOD, XK_Y, externalpipe, { .v = copycmdoutput} },
+  { TERMMOD, XK_E, externalpipe, { .v = editscreen} },
+  { TERMMOD, XK_U, externalpipe, { .v = with_url} },
 	/* mask                 keysym          function        argument */
 	{ AltMask,              XK_c,           normalMode,     {.i =  0} },
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
