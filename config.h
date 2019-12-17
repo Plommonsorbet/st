@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Liberation Mono:pixelsize=16:antialias=true:autohint=true";
 static char *font2[] = {
-    "Emoji One:pixelsize=12",
+    "Noto Color Emoji:pixelsize=18",
 };
 static int borderpx = 2;
 
@@ -16,7 +16,7 @@ static char *editscreen[] = { "/bin/sh", "-c",
     "$XDG_BIN_HOME/st-edit-screen", NULL };
 
 static char *with_url[] = { "/bin/sh", "-c",
-    "$XDG_BIN_HOME/st-with-url", NULL };
+    "$XDG_BIN_HOME/st-with-url", "externalpipe", NULL };
 
 static char *copycmdoutput[] = { "/bin/sh", "-c",
     "dmenu-copy-out",
