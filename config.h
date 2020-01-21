@@ -8,19 +8,19 @@
 static char *font = "Liberation Mono:pixelsize=16:antialias=true:autohint=true";
 static char *font2[] = {
     "Noto Color Emoji:pixelsize=18",
+    "TerminessTTF NF:pixelsize=30"
 };
 static int borderpx = 2;
 
 
 static char *editscreen[] = { "/bin/sh", "-c",
-    "$XDG_BIN_HOME/st-edit-screen", NULL };
+    "st-edit-screen", NULL };
 
 static char *with_url[] = { "/bin/sh", "-c",
-    "$XDG_BIN_HOME/st-with-url", "externalpipe", NULL };
+    "st-with-url", NULL };
 
 static char *copycmdoutput[] = { "/bin/sh", "-c",
-    "dmenu-copy-out",
-    "externalpipe", NULL };
+    "dmenu-copy-out", "externalpipe", NULL };
 
 
 /*
@@ -130,10 +130,14 @@ static const char *colorname[] = {
 	"white",
 
 	[255] = "#f5fffa",
+	[256] = "#f5fffa",
+	[257] = "#f5fffa",
+	[258] = "#f5fffa",
+	[259] = "#f5fffa",
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
-	"#555555",
+	"#cccccc",
 };
 
 
@@ -141,10 +145,14 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+//unsigned int defaultfg = 7;
+//unsigned int defaultbg = 0;
+//static unsigned int defaultcs = 256;
+//static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 259;
+unsigned int defaultrcs = 258;
 
 /*
  * Default shape of cursor
@@ -258,6 +266,7 @@ ResourcePref resources[] = {
 		{ "background",   STRING,  &colorname[256] },
 		{ "foreground",   STRING,  &colorname[257] },
 		{ "cursor",   STRING,  &colorname[258] },
+		//{ "cursor_bg",   STRING,  &colorname[259] },
 		//{ "cursorBackground",  STRING,  &colorname[258] },
 		//{ "cursorForeground",  STRING,  &colorname[259] },
 		{ "termname",     STRING,  &termname },
